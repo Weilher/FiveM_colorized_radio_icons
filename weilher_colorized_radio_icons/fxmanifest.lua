@@ -5,6 +5,5 @@ author 'Weilher'
 description 'Colorized icons for radio hud'
 version '1.0'
 
-client_scripts {
-    "client/*.lua"
-}
+client_scripts { "client/*.lua" }
+server_script { "server/check_version.lua" }
