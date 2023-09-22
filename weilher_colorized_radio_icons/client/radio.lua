@@ -24,10 +24,29 @@ local radioStations = {
     ["RADIO_27_DLC_PRHEI4"] = false,                -- "Still Slipping Los Santos"
     ["RADIO_34_DLC_HEI4_KULT"] = false,             -- "Kult FM"
     ["RADIO_35_DLC_HEI4_MLR"] = false,              -- "The Music Locker"
-    ["RADIO_36_AUDIOPLAYER"] = true,                -- "Media Player"
+    ["RADIO_36_AUDIOPLAYER"] = false,                -- "Media Player"
     ["RADIO_37_MOTOMAMI"] = false                   -- "MOTOMAMI Los Santos"
 }
 
 for station, enabled in pairs(radioStations) do
     LockRadioStation(station, enabled)
 end
+
+-- Media player radio :
+LockRadioStationTrackList("RADIO_36_AUDIOPLAYER", "tuner_ap_silence_music")
+
+local trackLists = {
+    "tuner_ap_mix1",
+    "tuner_ap_mix2",
+    "tuner_ap_mix3",
+    "tuner_ap_mix3_parta",
+    "tuner_ap_mix3_partb",
+    "tuner_ap_mix3_partc",
+    "tuner_ap_mix3_partd"
+}
+
+for _, trackName in ipairs(trackLists) do
+    UnlockRadioStationTrackList("RADIO_36_AUDIOPLAYER", trackName)
+end
+
+UnlockRadioStationTrackList("RADIO_36_AUDIOPLAYER", "tuner_ap_mix1")
